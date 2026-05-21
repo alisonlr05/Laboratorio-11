@@ -1,0 +1,115 @@
+:host {
+  display: block;
+  border-radius: var(--radius-md, 1rem);
+  overflow: hidden;
+  height: 100%;
+}
+
+/* ── Loading state (patrón del curso) ── */
+.loading-wrapper {
+  background: var(--color-surface, #111827);
+  border: 1px solid var(--color-border, rgba(255 255 255 / 0.08));
+  border-radius: var(--radius-md, 1rem);
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.loading {
+  --size: 14px;
+  width: var(--size);
+  height: var(--size);
+  background: var(--color-accent, #38bdf8);
+  border-radius: 50%;
+  animation: bounce 0.8s infinite alternate;
+}
+
+.loading:nth-child(2) { animation-delay: 0.15s; }
+.loading:nth-child(3) { animation-delay: 0.30s; }
+
+@keyframes bounce {
+  0%   { translate: 0 -8px; opacity: 0.4; }
+  100% { translate: 0  0px; opacity: 1;   }
+}
+
+/* ── Datos cargados ── */
+.container {
+  background: var(--color-surface, #111827);
+  border: 1px solid var(--color-border, rgba(255 255 255 / 0.08));
+  border-radius: var(--radius-md, 1rem);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  height: 100%;
+  transition: box-shadow var(--transition, 0.25s ease);
+}
+
+.container:hover {
+  box-shadow: 0 0 0 1px var(--color-accent-2, #818cf8),
+              0 8px 32px rgba(129 140 248 / 0.15);
+}
+
+.city {
+  font-family: var(--font-display, 'Orbitron', sans-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted, #64748b);
+}
+
+.weather-row { display: flex; align-items: center; gap: 0.75rem; }
+.icon        { font-size: 2.5rem; line-height: 1; }
+
+.temp {
+  font-family: var(--font-display, 'Orbitron', sans-serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-text, #f1f5f9);
+  line-height: 1;
+}
+
+.temp sup {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-muted, #64748b);
+}
+
+.condition {
+  font-size: 0.8rem;
+  color: var(--color-accent-2, #818cf8);
+  letter-spacing: 0.05em;
+}
+
+.clock-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border, rgba(255 255 255 / 0.08));
+}
+
+.clock-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--color-muted, #64748b);
+  text-transform: uppercase;
+}
+
+.clock {
+  font-family: var(--font-display, 'Orbitron', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent, #38bdf8);
+  letter-spacing: 0.05em;
+}
+
+::slotted([slot="extra"]) {
+  font-size: 0.7rem;
+  color: var(--color-muted, #64748b);
+}
