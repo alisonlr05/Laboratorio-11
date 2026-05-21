@@ -1,0 +1,22 @@
+{
+  "name": "Laboratorio 11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1","dev": "servor src/ index,html 1234 --reload",
+
+"deploy": "gh-pages -d src/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.0.9",
+      "onFail": "download"
+    }
+  },
+  "type": "module"
+}
